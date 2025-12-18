@@ -8,7 +8,6 @@
 
 #  ----- Base Libraries -----
 import datetime
-import getpass
 import os
 import platform
 import random
@@ -50,7 +49,7 @@ strOSVer = platform.platform()
 #  PC Name
 strPC = platform.node()
 #  UserID
-strUser = getpass.getuser()
+strUser = os.getlogin()
 #  Filter warnings
 warnings.filterwarnings('ignore')
 #  Turn logging off
@@ -81,8 +80,17 @@ colorama_init(autoreset=True)
 #
 #  ---------- Setup Docling ----------
 #
-artifacts_path = '/Users/dan1/.cache/docling/models'
+if (strOS=="Darwin"):
+    artifacts_path = "/Users/"+strUser+"/.cache/docling/models"
+if (strOS=="Linux"):
+    artifacts_path = "/home/"+strUser+"/.cache/docling/models"
+if (strOS=="Windows"):
+    artifacts_path = "/Users/"+strUser+"/.cache/docling/models"
+
+accelerator_options = AcceleratorOptions(num_threads=8, device=AcceleratorDevice.CPU)
 pipeline_options = PdfPipelineOptions(artifacts_path=artifacts_path)
+pipeline_options.accelerator_options = accelerator_options
+
 doc_converter = DocumentConverter(
     format_options={
         InputFormat.PDF: PdfFormatOption(pipeline_options=pipeline_options)
