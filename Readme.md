@@ -13,7 +13,7 @@ This Python script ([`GPU-ollama-RAG.py`](https://github.com/morvayd/Ollama-docl
 
 **Technical Stack:** Ollama API, Docling (document processing), Colorama (colored output), Pandas/SQLite (data tracking), custom PythonLog module
 
-** Workflow **
+**Workflow:**
 1. User selects an Ollama model from installed models
 2. User can optionally load a document
 3. User asks questions (with or without document context)
