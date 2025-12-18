@@ -1,6 +1,7 @@
 #  Reference:  https://github.com/ollama/ollama-python
 #  Author:  Daniel Morvay
 #  Creator Email:  morvayd@gmail.com
+#  Description:  Run on Windows, Linux, Mac - AI you can chat with, load a document then chat with the document.  
 
 #
 #  ---------- Install ----------
@@ -30,6 +31,7 @@ import sqlite3
 from docling.datamodel.base_models import InputFormat
 from docling.datamodel.pipeline_options import EasyOcrOptions, PdfPipelineOptions
 from docling.document_converter import DocumentConverter, PdfFormatOption
+from docling.datamodel.accelerator_options import AcceleratorDevice, AcceleratorOptions
 
 #  ----- Custom Libraries -----
 import PythonLog
@@ -38,7 +40,7 @@ import PythonLog
 #  ---------- Setup ----------
 #
 strPythonScript = "GPU-ollama-RAG.py"
-strModified = "2025.12.10"
+strModified = "2025.12.17"
 
 #  Python Version
 strPyVer = platform.python_version()
@@ -321,7 +323,7 @@ while (strQuestion!="quit" or strQuestion!="Quit" or strQuestion!="exit" or strQ
         #  Check does the file exist?
         if (os.path.isfile(strLoadFile)):
             print ("\nLoading the document using docling ...")
-            #  source = "/Users/dan1/R/PythonWorkArea/docling testing/2408.09869v5.pdf"
+            #  source = "/Users/"+strUser+"/R/PythonWorkArea/docling testing/2408.09869v5.pdf"
             source = strLoadFile
 
             result = doc_converter.convert(source)
@@ -501,3 +503,4 @@ while (strQuestion!="quit" or strQuestion!="Quit" or strQuestion!="exit" or strQ
     else:
         #  print ("\nNothing input ... nothing to answer.")
         print ("\n")
+
