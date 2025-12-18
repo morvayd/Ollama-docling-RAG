@@ -9,9 +9,11 @@ This Python script ([`GPU-ollama-RAG.py`](https://github.com/morvayd/Ollama-docl
 - **Cross-platform**: Works on Windows, Linux, and macOS
 - **Comprehensive Logging**: Tracks all interactions in SQLite database with metadata (tokens, timing, word counts)
 
-**Key Commands:** `load`, `unload`, `text`, `chunk`, `think`, `pirate`, `jeeves`, `mystic`, `model`, `quit`
+**Key Commands:** 
+`load`, `unload`, `text`, `chunk`, `think`, `pirate`, `jeeves`, `mystic`, `model`, `quit`
 
-**Technical Stack:** Ollama API, Docling (document processing), Colorama (colored output), Pandas/SQLite (data tracking), custom PythonLog module
+**Technical Stack:** 
+Ollama API, Docling (document processing), Colorama (colored output), Pandas/SQLite (data tracking), custom PythonLog module
 
 **Workflow:**
 1. User selects an Ollama model from installed models
